@@ -1,0 +1,27 @@
+{
+  "name": "calendrx",
+  "version": "1.0.0",
+  "description": "CalenDRx is an online database for your medication regiment and Dr. appointments all collected into an easy to use calendar.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7",
+    "sequelize": "^4.31.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jliscar6591/CalenDRx.git"
+  },
+  "author": "John, Mara, Bean, Dan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jliscar6591/CalenDRx/issues"
+  },
+  "homepage": "https://github.com/jliscar6591/CalenDRx#readme"
+}
