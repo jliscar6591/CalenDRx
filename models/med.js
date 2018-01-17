@@ -16,6 +16,11 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           allowNull: false,
           len: [1]
+      },
+      dailyfreq: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        len: [1]
       }
     });
   
