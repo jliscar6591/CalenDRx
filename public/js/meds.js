@@ -123,7 +123,7 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("med");
-      window.location.href = "/main?User_id=" + currentUser.id;
+      window.location.href = "/addMed?med_id=" + currentMed.id;
     }
   
     // This function displays a messgae when there are no posts
