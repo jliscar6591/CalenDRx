@@ -14,11 +14,11 @@ module.exports = function(app) {
 
  
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.sendFile(path.join(__dirname, "../public/main.html"));
   });
 
-  app.get("/addUser", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/addUser.html"));
+  app.get("/meds", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/meds.html"));
   });
   
   app.get("/main", function(req, res) {
@@ -27,10 +27,6 @@ module.exports = function(app) {
 
   app.get("/addMed", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/addMed.html"));
-  });
-
-  app.get("/medRef", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/medRef.html"));
   });
 
 };

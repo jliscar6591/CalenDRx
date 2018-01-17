@@ -12,9 +12,47 @@
 </head>
 
 <body>
-<!-- Custom Script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
-<script src="js/main.js" type="text/javascript"></script>
+    <div class="container">
+        <div class="row top-30">
+          <div class="col-md-2 col-sm-2">
+            <a class="btn btn-default" href="/meds">Go to Medications</a>
+          </div>
+          <div class="col-md-2 col-sm-2">
+            <a class="btn btn-default" href="/addMed">Add a Medication</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="user-container">
+              <h1>Users</h1>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th># of Meds</th>
+                    <th>See User's Meds</th>
+                    <th>New Med</th>
+                    <th>Delete User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="form-row">
+                    <form id="user-form">
+                      <td colspan="4">
+                        <input placeholder="Enter a name" id="user-name" type="text" />
+                      </td>
+                      <td><button type="submit" class="btn btn-success">Create User</button>
+                      </td>
+                    </form>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        </d>
+        <!-- Custom Script -->
+        <script src="js/main.js" type="text/javascript"></script>
 
 </body>
 
