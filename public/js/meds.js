@@ -48,7 +48,7 @@ $(document).ready(function() {
         url: "/api/meds/" + id
       })
       .then(function() {
-        getPosts();
+        getMeds();
       });
     }
   
@@ -114,7 +114,8 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("med");
-      deleteMed(currentMed.id);
+      deleteMeds(currentMed.id);
+      window.location.href = "api/meds?user_id=" + currentUser.id; 
     }
   
     // This function figures out which post we want to edit and takes it to the appropriate url
