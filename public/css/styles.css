@@ -1,6 +1,10 @@
-body{
-    /*height:100%;
-*/    background: linear-gradient(180deg, white, #D0D0D0 99%) no-repeat;
+html{
+     background: linear-gradient(180deg, white, #F5FFFA;)no-repeat;
+}
+
+body {
+   background: linear-gradient(180deg, #F5FFFA, white 99%) no-repeat;
+
 }
 
 .nBar {
