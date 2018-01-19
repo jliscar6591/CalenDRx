@@ -42,7 +42,7 @@ $(document).ready(function() {
     }
   
     // This function does an API call to delete posts
-    function deleteMeds(id) {
+    function deleteMed(id) {
       $.ajax({
         method: "DELETE",
         url: "/api/meds/" + id
