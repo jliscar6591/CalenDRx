@@ -114,9 +114,8 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("med");
-      deleteMed(currentMed.id);
-      window.location.href = "/meds?user_id=" + currentUser.id;
-
+      deleteMeds(currentMed.id);
+      window.location.href = "/meds?user_id=" + currentUser.id; 
     }
   
     // This function figures out which post we want to edit and takes it to the appropriate url
