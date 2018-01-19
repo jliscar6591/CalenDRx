@@ -114,7 +114,7 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("med");
-      deleteMeds(currentMed.id);
+      deleteMed(currentMed.id);
       window.location.href = "/meds?user_id=" + currentUser.id; 
     }
   
