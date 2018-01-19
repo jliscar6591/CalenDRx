@@ -42,13 +42,13 @@ $(document).ready(function() {
     }
   
     // This function does an API call to delete posts
-    function deleteMed(id) {
+    function deleteMed(id, user) {
       $.ajax({
         method: "DELETE",
         url: "/api/meds/" + id
       })
       .then(function() {
-        getMeds();
+        getMeds(user);
       });
     }
   
@@ -114,7 +114,7 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("med");
-      deleteMed(currentMed.id);
+      deleteMed(currentMed.id, currentMed.UserId);
       window.location.href = "/meds?user_id=" + currentUser.id; 
     }
   
