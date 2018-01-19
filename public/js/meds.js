@@ -42,7 +42,7 @@ $(document).ready(function() {
     }
   
     // This function does an API call to delete posts
-    function deleteMeds(id) {
+    function deleteMed(id) {
       $.ajax({
         method: "DELETE",
         url: "/api/meds/" + id
@@ -114,8 +114,9 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("med");
-      deleteMeds(currentMed.id);
-      window.location.href = "api/meds?user_id=" + currentUser.id; 
+      deleteMed(currentMed.id);
+      window.location.href = "/meds?user_id=" + currentUser.id;
+
     }
   
     // This function figures out which post we want to edit and takes it to the appropriate url
