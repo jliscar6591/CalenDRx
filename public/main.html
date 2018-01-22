@@ -23,8 +23,10 @@
                 <li class="active"><a href="/main">Patients List</a></li>
                 <!-- <li> <a href="/meds">Medications List</a></li> -->
                 <li><a href="/addMed">Add Medication</a></li>
+                <li><a href="/apptpage">View Patient Appointments</a></li>
+                <li><a href="/addAppt">Add a Patient Appointment</a></li>
             </ul>
-            <button class="btn btn-danger navbar-btn">Log Out</button>
+            <button class="btn btn-danger navbar-btn"><a href="/">Log Out</a></button>
           </div>
       
     </nav>
@@ -73,7 +75,9 @@
                       <th>Name</th>
                       <th># of Meds</th>
                       <th>User's Meds</th>
+                      <th>User's Appts</th>
                         <th>Add New Med</th>
+                        <th>Add a Patient Appt</th>
                     <th>Delete User</th>
                   </tr>
                   </thead>
@@ -82,6 +86,25 @@
     </div>
     </div>
     </div>
+
+    <script>
+function filterMyPatients() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("srch-term");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+</script>
     <!-- Custom Script -->
     <script src="js/main.js" type="text/javascript"></script>
 </body>

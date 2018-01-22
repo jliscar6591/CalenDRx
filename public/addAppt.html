@@ -18,10 +18,10 @@
             <a class="navbar-brand" href="/main">MediScript</a>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/main">Patients List</a></li>
-                <!-- <li> <a href="/meds">Medications List</a></li> -->
+                <li> <a href="/meds">Medications List</a></li>
                 <li><a href="/addMed">Add Medication</a></li>
-                <li><a href="apptpage">View Patient Appointments</a></li>
-                <li><a href="addAppt">Add a Patient Appointment</a></li>
+                <li><a href="/apptpage">View Patient Appointments</a></li>
+                <li><a href="/addAppt">Add a Patient Appointment</a></li>
             </ul>
             <button class="btn btn-danger navbar-btn">Log Out</button>
         </div>
@@ -29,18 +29,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <form id="addMed">
+                <form id="addApptForm">
                     <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input placeholder="Med Name" type="text" class="form-control" id="name">
+                        <label for="appt-type">Appointment Type:</label>
+                        <input placeholder="Appointment Type" type="text" class="form-control" id="apptType">
                         <br />
-                        <label for="usage">Usage:</label>
-                        <textarea placeholder="Med Usage" class="form-control" rows="10" id="usage"></textarea>
-                        <label for="dosage">Dosage (in mgs):</label>
-                        <input placeholder="Dosage" type="number" class="form-control" id="dosage">
-                        <br />
-                        <label for="daily-freq"># of Times Taken Per Day:</label>
-                        <input placeholder="daily-freq" type="number" class="form-control" id="daily-freq">
+                        <label for="appt-time-date">Date:</label>
+                        <textarea placeholder="Appointment Date" class="form-control" rows="10" id="apptDate"></textarea>
                         <br />
                         <div class="form-group">
                             <label for="category">Select User:</label>
@@ -54,8 +49,8 @@
             </div>
         </div>
     </div>
-    <!-- Custom Script -->
-    <script src="js/addMed.js" type="text/javascript"></script>
+<!--Custom Script-->
+<script src="js/addAppt.js" type="text/javascript"></script>
 </body>
 
-</html>
+</html> 

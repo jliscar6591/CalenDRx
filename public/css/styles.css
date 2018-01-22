@@ -18,6 +18,22 @@ body {
   margin: 30px;
   border-radius: 15px;
 }
+.caduceus {
+	background-image: url("https://ak9.picdn.net/shutterstock/videos/217609/thumb/1.jpg");
+	background-image: no-repeat;
 
+}
+
+#goMainPage {
+	text-align: center;
+}
+
+.information {
+	padding: 30px;
+}
+
+.homepage-container {
+	background: linear-gradient(180deg, white, #F5FFFA;)no-repeat;
+}
 
 
