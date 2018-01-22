@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
         User.hasMany(models.Med, {
           onDelete: "cascade"
         })
-        .hasMany(models.Appt, {
+        User.hasMany(models.Appt, {
           onDelete: "cascade"
         });
       };

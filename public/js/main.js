@@ -38,8 +38,11 @@ $(document).ready(function() {
     newTr.append("<td>" + userData.name + "</td>");
     newTr.append("<td> " + userData.Meds.length + "</td>");
     newTr.append("<td><a href='/meds?user_id=" + userData.id + "'>Go to Meds</a></td>");
+     newTr.append("<td><a href='/apptpage?user_id=" + userData.id + "'>Go to Patient Appointments</a></td>");
     newTr.append("<td><a href='/addMed?user_id=" + userData.id + "'>Add a Medication</a></td>");
+    newTr.append("<td><a href='addAppt?user_id=" + userData.id + "'>Add an Appointment</a><td>");
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>");
+
     return newTr;
   }
 
