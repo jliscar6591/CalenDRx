@@ -1,4 +1,7 @@
 var db = require("../models");
+var router = require("express").Router();
+var NewUser = require("../models").NewUser;
+var passport = require("passport");
 
 module.exports = function(app) {
     app.get("/api/users", function(req, res) {
@@ -39,4 +42,29 @@ module.exports = function(app) {
     });
   
   };
+
+  router.post('/register', function (req, res){
+    NewUser.create({
+      email: req.body.email,
+      password: req.body.password
+    }).then(function (){
+        res.redirect('/')
+      });
+  }); 
+
+  router.post('/login', function(req, res, next){
+    passport.authenticate('local', function(err, user, info){
+      if (err) return next(err);
+
+      if (!user) return res.redirect('/');
+
+      req.logIn(user, function(err){
+        if (err) return next(err);
+        console.log(user);
+    return res.redirect('/');
+      });
+    })(req, res, next);
+  });
+
+
   

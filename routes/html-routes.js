@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var router = require('express').Router();
 
 // Routes
 // =============================================================
@@ -30,3 +31,12 @@ module.exports = function(app) {
   });
 
 };
+
+// router.get('/', function(req.res){
+//   if (req.user){
+
+//   }else{
+
+//   }
+//   res.render('index',{NewUser: req.user})
+// })

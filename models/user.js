@@ -1,5 +1,16 @@
+'use strict';
+
 module.exports = function(sequelize, DataTypes) {
-    var User = sequelize.define("User", {
+  var NewUser = sequelize.define('NewUser', {
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
+  });
+
+  return NewUser;
+};
+
+module.exports = function(sequelize, DataTypes) {
+    var User = sequelize.define("user", {
       name: {
         type: DataTypes.STRING,
         allowNull: false,

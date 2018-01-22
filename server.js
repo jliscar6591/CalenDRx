@@ -6,7 +6,53 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require("passport");
+var session = require('express-session');
+var Strategy = require("passport-local").Strategy;
+var setup = require('./config/setup');
 
+app.use(session({
+	secret: setup.secret,
+	proxy: true,
+	resave: false,
+	saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new Strategy({
+	usernameField: 'email'
+}, function(email, password, cb) {
+	NewUser.findOne({
+		where: {
+			email: email
+		}
+	}).then(function(user) {
+		if ( NewUser ) {
+			// Check password
+			if ( NewUser.password == password ) {
+				cb(null, user);
+			} else {
+				cb(null, false);
+			}
+		} else {
+			return cb(null, false);
+		}
+	}).catch(function(err) { 
+		console.log('error');
+		return cb(err) 
+	});
+}));
+
+passport.serializeUser(function(user, cb) {
+	cb(null, user.id);
+});
+
+passport.deserializeUser(function(id, cb) {
+	NewUser.findById(id).then(function(user) {
+		cb(null, user);
+	});
+});
 
 // Sets up the Express App
 // =============================================================
