@@ -3,7 +3,7 @@ $(document).ready(function () {
     var apptTypeInput = $("#apptType");
     var apptDateInput = $("#apptDate");
     var userSelect = $("#user");
-    var addApptForm = $("addApptForm")
+    var addApptForm = $("#addApptForm")
 
     $(addApptForm).on("submit", handleApptFormSubmit);
     
@@ -14,9 +14,9 @@ $(document).ready(function () {
     var updating = false;
 
    
-    if (url.indexOf("?appts_id=") !== -1) {
+    if (url.indexOf("?appt_id=") !== -1) {
         apptId = url.split("=")[1];
-        getApptData(apptId, "appts");
+        getApptData(apptId, "appt");
     }
     else if (url.indexOf("?user_id=") !== -1) {
         userId = url.split("=")[1];
@@ -29,16 +29,17 @@ $(document).ready(function () {
     function handleApptFormSubmit(event) {
         event.preventDefault();
         
-        if (!apptTypeInput.val().trim() || !apptDateInput.val().trim()) {
+        if (!apptTypeInput.val().trim() || !apptDateInput.val().trim() || !userSelect.val()) {
             return;
         }
         var newAppt = {
             appttype: apptTypeInput
                 .val()
                 .trim(),
-            apptdate: apptDateInput
+            appttime: apptDateInput
                 .val()
-                .trim()
+                .trim(),
+            UserId: userSelect.val()
         };
 
         
@@ -61,7 +62,7 @@ $(document).ready(function () {
     function getApptData(id, type) {
         var queryUrl;
         switch (type) {
-            case "appts":
+            case "appt":
                 queryUrl = "/api/appts/" + id;
                 break;
             case "user":
@@ -107,11 +108,11 @@ $(document).ready(function () {
         return listOption;
     }
 
-    function updateAppt(appts) {
+    function updateAppt(appt) {
         $.ajax({
                 method: "PUT",
                 url: "/api/appts",
-                data: appts
+                data: appt
             })
             .then(function () {
                 window.location.href = "/main";

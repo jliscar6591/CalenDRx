@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     User.associate = function(models) {
         User.hasMany(models.Med, {
           onDelete: "cascade"
-        })
+        }),
         User.hasMany(models.Appt, {
           onDelete: "cascade"
         });
