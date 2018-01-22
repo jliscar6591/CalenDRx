@@ -22,6 +22,7 @@
         display: inline-block;
         border: 1px solid #ccc;
         box-sizing: border-box;
+        position: center;
     }
     /* Set a style for all buttons */
 
@@ -32,7 +33,8 @@
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 100%;
+        width: 40%;
+
     }
 
     button:hover {
@@ -95,7 +97,7 @@ img.avatar {
         margin: 5% auto 15% auto;
         /* 5% from the top, 15% from the bottom and centered */
         border: 1px solid #888;
-        width: 80%;
+        width: 100%;
         /* Could be more or less, depending on screen size */
     }
     /* The Close Button (x) */
@@ -149,18 +151,39 @@ img.avatar {
             width: 100%;
         }
     }
+
+    #line-2 {
+        top: 10px;
+}
+    #line-3 {
+        top: 30px;
+}
+    #app-title {
+        padding-top: 50px;
+        font-size: 70px;
+    }
+
+    #login {
+        margin-right: 15px;
+    }
 </style>
 
 <body>
     <div class="container homepage-container">
         <div class="row caduceus">
-            <h1 style="text-align: center">Mediscript</h1>
-            <div class="col-md-6 col-xs-6">
+                <div class="col-md-6 col-xs-6 col-md-offset-4">
+            <p id="app-title" style="text-align: center">Mediscript</p>
             </div>
-            <div class="col-md-6 col-xs-6">
-                <h3>The world's most intuitive patient management system.</h3>
-                <p>Create, read, update, delete</p>
+            <div class="col-md-4 col-xs-4"></div>
+            
+            <div class="col-md-6 col-xs-6" id="line-2">
+                <h3>Keep track of your patients with zero patience.</h3>               
             </div>
+            <div class="col-md-4 col-xs-4">
+                </div>
+                <div class="col-md-6 col-xs-6" id="line-3">                   
+                    <p>Create, read, update, delete their medications and appointments</p>
+                </div>
         </div>
         <div class="row">
             <div class="col-md-4 col-xs-4 information-columns">
@@ -169,16 +192,18 @@ img.avatar {
             </div>
             <div class="col-md-4 col-xs-4">
                 <p class="information">Use Mediscript to add new patients to your records, update existing patient records, and manage patient medications
-                    and appointments at the click of a button.</p>
+                    and appointments.</p>
             </div>
             <div class="col-md-4 col-xs-4">
-                <p class="information">Ready to become a physician of the future? Click below to login and start managing like a professional.</p>
+                <p class="information">Ready to become a physician of the future? Click below to login and start managing your practice like a professional.                                            
+
+                </p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-xs-12 col-md-offset-5 col-xs-offset-5">
-                <button class="btn btn-default btn-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
-                    <!-- <a href="/main"> -->Go to the Main Page</a>
+            <div>
+                <button id="login" class="col-md-4 col-xs-4 col-md-offset-4 btn btn-default btn-primary" onclick="document.getElementById('id01').style.display='block'" >
+                    <!-- <a href="/main"> -->Login</a>
                 </button>
             </div>
         </div>
@@ -188,12 +213,8 @@ img.avatar {
     <div id="id01" class="modal">
 
         <form class="modal-content animate" action="/main">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
-            </div>
 
-            <!-- <div class="container"> -->
+            <div class="container">
             <label>
                 <b>Username</b>
             </label>
@@ -208,14 +229,14 @@ img.avatar {
             <label>
                 <input type="checkbox" checked="checked"> Remember me
             </label>
-            <!-- </div> -->
+            
 
-            <!-- <div class="container" style="background-color:#f1f1f1"> -->
-            <button type="button" onclick="document.getElementById('#id01').style.display='none'" class="cancelbtn">Cancel</button>
+            
+            <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
             <span class="psw">Forgot
                 <a href="#">password?</a>
             </span>
-            <!-- </div> -->
+           </div> 
         </form>
     </div>
 

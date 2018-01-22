@@ -35,8 +35,6 @@ $(document).ready(function() {
       .then(getUsers);
   }
 
-
-
  
   function createUserRow(userData) {
     var newTr = $("<tr>");

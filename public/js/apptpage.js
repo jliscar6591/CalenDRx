@@ -76,13 +76,6 @@ $(document).ready(function() {
       var newApptName = $("<h2>");
       var newApptDate = $("<small>");
       var newApptUser = $("<h5>");
-      newApptUser.text("Added by: " + appt.User.name);
-      newApptUser.css({
-        float: "right",
-        color: "blue",
-        "margin-top":
-        "-10px"
-      });
       var newApptPanelBody = $("<div>");
       newApptPanelBody.addClass("panel-body");
       var newApptTime = $("<p>");
@@ -109,8 +102,8 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("appt");
-      deleteAppt(currentAppt.id);
-      window.location.href = "/appts?user_id=" + currentAppt.id;
+      deleteAppt(currentAppt.id, currentAppt.UserId);
+      window.location.href = "/appts?user_id=" + currentUser.id;
 
     }
   
