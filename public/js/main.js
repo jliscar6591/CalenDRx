@@ -14,7 +14,7 @@ $(document).ready(function() {
   function handleUserFormSubmit(event) {
     event.preventDefault();
    
-    if (!nameInput.val().trim().trim()) {
+    if (!nameInput.val().trim()) {
       return;
     }
     
@@ -57,11 +57,11 @@ $(document).ready(function() {
 
   
   function renderUserList(rows) {
-    userList.children().not(":last").remove();
+    userList.children().not(".last").remove();
     userContainer.children(".alert").remove();
     if (rows.length) {
       console.log(rows);
-      userList.prepend(rows);
+      userList.append(rows);
     }
     else {
       renderEmpty();
@@ -84,6 +84,8 @@ $(document).ready(function() {
       method: "DELETE",
       url: "/api/users/" + id
     })
-    .then(getUsers);
+    .then(getUsers)
+    location.reload(true);
   }
+
 });

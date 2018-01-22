@@ -1,12 +1,11 @@
 $(document).ready(function() {
-    /* global moment */
   
-    // blogContainer holds all of our posts
+    
     var medContainer = $(".med-container");
-    // Click events for the edit and delete buttons
+    
     $(document).on("click", "button.delete", handleMedDelete);
     $(document).on("click", "button.edit", handleMedEdit);
-    // Variable to hold our posts
+   
     var meds;
   
     // The code below handles the case where we want to get blog posts for a specific author
