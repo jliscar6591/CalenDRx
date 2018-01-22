@@ -9,13 +9,13 @@ module.exports = function(app) {
         res.json(dbUser);
       });
     });
-  
-    app.get("/api/users/:id", function(req, res) {
+
+    app.get("/api/users/:name", function(req, res) {
       // 2. Add a join to include all of the Author's Posts here
-      db.User.findOne({
+      db.User.findAll({
         include: [ db.Med ],
         where: {
-          id: req.params.id
+          name: req.params.name
         }
       }).then(function(dbUser) {
         res.json(dbUser);
@@ -29,7 +29,8 @@ module.exports = function(app) {
     });
   
     app.delete("/api/users/:id", function(req, res) {
-      db.Users.destroy({
+      console.log(req.params);
+      db.User.destroy({
         where: {
           id: req.params.id
         }

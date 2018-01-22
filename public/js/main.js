@@ -3,9 +3,13 @@ $(document).ready(function() {
   var nameInput = $("#user-name");
   var userList = $("tbody");
   var userContainer = $(".user-container");
+  var searchInput = $("#search-term");
+
+
 
   $(document).on("submit", "#user-form", handleUserFormSubmit);
   $(document).on("click", ".delete-user", handleDeleteButtonPress);
+  $(document).on("submit", "#search-form", handleSearchButton);
 
   
   getUsers();
@@ -14,7 +18,7 @@ $(document).ready(function() {
   function handleUserFormSubmit(event) {
     event.preventDefault();
    
-    if (!nameInput.val().trim().trim()) {
+    if (!nameInput.val().trim()) {
       return;
     }
     
@@ -30,6 +34,8 @@ $(document).ready(function() {
     $.post("/api/users", userData)
       .then(getUsers);
   }
+
+
 
  
   function createUserRow(userData) {
@@ -58,13 +64,29 @@ $(document).ready(function() {
     });
   }
 
+  function searchUsers() {
+      var searchTerm = $("#search-term").val();
+    $.get("/api/users/" + searchTerm, function(data) {
+        var rowsToAdd = [];
+        if(data.length) {
+        for (var i = 0; i < data.length; i++) {
+          rowsToAdd.push(createUserRow(data[i]));
+        }
+        renderUserList(rowsToAdd);
+        nameInput.val("");
+    } else {
+        renderSearchEmpty();
+    }
+      });
+    };
+
   
   function renderUserList(rows) {
-    userList.children().not(":last").remove();
+    userList.children().not(".last").remove();
     userContainer.children(".alert").remove();
     if (rows.length) {
       console.log(rows);
-      userList.prepend(rows);
+      userList.append(rows);
     }
     else {
       renderEmpty();
@@ -75,11 +97,17 @@ $(document).ready(function() {
   function renderEmpty() {
     var alertDiv = $("<div>");
     alertDiv.addClass("alert alert-danger");
-    alertDiv.text("You must create an User before you can add a Med.");
+    alertDiv.text("Please add a patient.");
     userContainer.append(alertDiv);
   }
 
-  
+  function renderSearchEmpty() {
+    var alertDiv = $("<div>");
+    alertDiv.addClass("alert alert-danger");
+    alertDiv.text("Patient not found.");
+    userContainer.append(alertDiv);
+  }
+
   function handleDeleteButtonPress() {
     var listItemData = $(this).parent("td").parent("tr").data("user");
     var id = listItemData.id;
@@ -87,6 +115,22 @@ $(document).ready(function() {
       method: "DELETE",
       url: "/api/users/" + id
     })
-    .then(getUsers);
+    .then(getUsers)
+    location.reload(true);
   }
+
+  function handleSearchButton() {
+    event.preventDefault();
+   
+    if (!searchInput.val().trim()) {
+      return;
+    }
+    
+    searchUsers({
+      name: searchInput
+        .val()
+        .trim()
+    });
+  } 
+  
 });

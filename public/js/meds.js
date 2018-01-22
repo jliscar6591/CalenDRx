@@ -1,12 +1,11 @@
 $(document).ready(function() {
-    /* global moment */
   
-    // blogContainer holds all of our posts
+    
     var medContainer = $(".med-container");
-    // Click events for the edit and delete buttons
+    
     $(document).on("click", "button.delete", handleMedDelete);
     $(document).on("click", "button.edit", handleMedEdit);
-    // Variable to hold our posts
+   
     var meds;
   
     // The code below handles the case where we want to get blog posts for a specific author
@@ -132,14 +131,14 @@ $(document).ready(function() {
       var query = window.location.search;
       var partial = "";
       if (id) {
-        partial = " for User #" + id;
+        partial = " for patient ";
       }
       medContainer.empty();
       var messageh2 = $("<h2>");
       messageh2.css({ "text-align": "center", "margin-top": "50px" });
       messageh2.html("No meds yet" + partial + ", navigate <a href='/addMed" + query +
       "'>here</a> in order to get started.");
-      medssContainer.append(messageh2);
+      medContainer.append(messageh2);
     }
   
   });
