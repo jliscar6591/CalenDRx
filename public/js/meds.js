@@ -76,14 +76,6 @@ $(document).ready(function() {
       editBtn.addClass("edit btn btn-info");
       var newMedName = $("<h2>");
       var newMedDate = $("<small>");
-      var newMedUser = $("<h5>");
-      newMedUser.text("Added by: " + med.User.name);
-      newMedUser.css({
-        float: "right",
-        color: "blue",
-        "margin-top":
-        "-10px"
-      });
       var newMedPanelBody = $("<div>");
       newMedPanelBody.addClass("panel-body");
       var newMedUsage = $("<p>");
@@ -98,7 +90,6 @@ $(document).ready(function() {
       newMedPanelHeading.append(deleteBtn);
       newMedPanelHeading.append(editBtn);
       newMedPanelHeading.append(newMedName);
-      newMedPanelHeading.append(newMedUser);
       newMedPanelBody.append(newMedUsage, newMedDosage, newMedDailyFreq);
       newMedPanel.append(newMedPanelHeading);
       newMedPanel.append(newMedPanelBody);
