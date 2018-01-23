@@ -41,5 +41,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/addAppt.html"));
   });
 
+  app.get("/calendar", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/calendar.html"));
+  });
 
 };
