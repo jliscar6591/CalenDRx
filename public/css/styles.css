@@ -1,5 +1,5 @@
 html{
-     background: linear-gradient(180deg, white, #F5FFFA;)no-repeat;
+     background: linear-gradient(180deg, white, #F5FFFA)no-repeat;
 }
 
 body {
@@ -42,6 +42,12 @@ body {
 }
 
 .homepage-container {
-	background: linear-gradient(180deg, white, #F5FFFA;)no-repeat;
+	background: linear-gradient(180deg, white, #F5FFFA)no-repeat;
 }
 
+th {
+  text-align: center;
+}
+ td{
+  text-align: center;
+ }
