@@ -6,7 +6,7 @@ Ready to become a physician of the future? Click below to login and start managi
 
 https://mediscript.herokuapp.com/
 
-##Login
+## Login
  
 When logging in use a properly formatted email address and any password over 7 characters to access the homepage.
 
